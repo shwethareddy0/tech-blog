@@ -19,7 +19,7 @@ Post.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    timestamp: {
+    created_on: {
       type: DataTypes.DATE,
       allowNull: false,
     },
