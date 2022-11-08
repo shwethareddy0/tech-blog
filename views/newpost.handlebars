@@ -1,0 +1,21 @@
+<div class="col-md-6">
+  <h3>Create a New Postt:</h3>
+
+  <form class="form new-project-form" method="POST" action="/post">
+    <div class="form-group">
+      <label for="project-name">Title</label>
+      <input class="form-input" type="text" id="title" name="title" />
+    </div>
+
+    <div class="form-group">
+      <label for="project-desc">Content</label>
+      <textarea class="form-input" id="content" name="content"></textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+  </form>
+  <a href="/newpost">
+    <button class="btn">+ New Post</button>
+  </a>
+</div>
