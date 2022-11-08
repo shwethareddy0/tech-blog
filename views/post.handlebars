@@ -1,14 +1,25 @@
 <div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <span for="img" aria-label="money">💲</span>
-    <span class="dollar-amount">{{format_amount needed_funding}}</span>
-    needed
-  </p>
-  <p>
-    <button class="btn btn-primary">Fund this Project!</button>
-  </p>
+  <h2>{{post.title}}</h2>
+  <p>{{post.content}}</p>
+  <p>Posted by {{post.user.username}} on {{format_date post.created_on}}</p>
+  {{#each post.comments as |comment|}}
+    <span>{{comment.content}}</span>
+  {{/each}}
+  <form class="form signup-form" method="POST" action="/comment">
+    <input
+      class="form-input"
+      type="hidden"
+      id="post_id"
+      name="post_id"
+      value="{{post.id}}"
+    />
+    <div class="form-group">
+      <label for="name-signup">Comment</label>
+      <input class="form-input" type="text" id="content" name="content" />
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+  </form>
 </div>

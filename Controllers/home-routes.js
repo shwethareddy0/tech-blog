@@ -30,11 +30,11 @@ router.get("/post/:id", withAuth, async (req, res) => {
           model: User,
           attributes: ["username"],
         },
-        /*{
+        {
           model: Comment,
           attributes: ["content", "created_on"],
           include: [{ model: User, attributes: ["username"] }],
-        },*/
+        },
       ],
     });
 
@@ -109,6 +109,7 @@ router.post("/comment", async (req, res) => {
     const commentData = await Comment.create({
       content: req.body.content,
       user_id: req.session.user_id,
+      post_id: req.body.post_id,
       created_on: Date.now(),
     });
     res.status(200).json(commentData);
