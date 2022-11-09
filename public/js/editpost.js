@@ -26,3 +26,27 @@ const editPostFormHandler = async (event) => {
 document
   .querySelector(".new-post-form")
   .addEventListener("submit", editPostFormHandler);
+// ------- DELETE post ----
+const deletePostFormHandler = async (event) => {
+  event.preventDefault();
+
+  // Collect values from the login form
+
+  const post_id = document.querySelector("#post_id").value.trim();
+  const response = await fetch("/post/" + post_id, {
+    method: "DELETE",
+    body: JSON.stringify({ title, content }),
+    headers: { "Content-Type": "application/json" },
+  });
+
+  if (response.ok) {
+    // If successful, redirect the browser to the profile page
+    document.location.replace("/dashboard");
+  } else {
+    alert(response.statusText);
+  }
+};
+
+document
+  .querySelector("#delete")
+  .addEventListener("click", deletePostFormHandler);
