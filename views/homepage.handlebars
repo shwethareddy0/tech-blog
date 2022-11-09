@@ -1,19 +1,19 @@
 <!-- Loop over each object in the projects array -->
 {{#each posts as |post|}}
-  <div class="row mb-4 post">
+  <div class="row mb-4 post" style="width:100%;  display:inline">
 
     <!-- Call helper function with triple brackets to render the emoji span as HTML -->
 
-    <div class="card" style="border:2px solid #231010">
+    <div class="card mb-4" style="border:5px solid #231010">
       <h3
         class="card-header"
-        style="background-color: #231010;color: #d9ead3"
-      ><a href="/post/{{post.id}}">{{post.title}}</a>
-        <p>Posted by
+        style="background-color: #231010;color: #d9ead3;  display:flex; justify-content:space-between"
+      ><a style="color: #d9ead3" href="/post/{{post.id}}">{{post.title}}</a>
+        <p style="font-size:20px">Posted by
           {{post.user.name}}
           on
           {{format_date post.created_on}}</p></h3>
-      <div class="card-body">
+      <div class="card-body" style="background-color: #d9ead3">
         <div class="col-md-6">
           <p>
             {{post.content}}
