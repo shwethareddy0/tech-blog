@@ -31,22 +31,20 @@ router.post("/login", async (req, res) => {
     });
 
     if (!userData) {
-      // res.redirect(400, "/login");
-      res.render("login", {
+      /*res.render("login", {
         error: "Incorrect username or password. Please try again!",
-      });
-      /*res
+      });*/
+      res
         .status(400)
-        .json({ message: "Incorrect username or password. Please try again!" });*/
+        .json({ message: "Incorrect username or password. Please try again!" });
       return;
     }
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res.redirect(400, "/login");
-      /*res
+      res
         .status(400)
-        .json({ message: "Incorrect email or password. Please try again!" });*/
+        .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
 
