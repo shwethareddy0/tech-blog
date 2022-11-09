@@ -73,6 +73,18 @@ router.get("/post/:id", withAuth, async (req, res) => {
   }
 });
 
+// GET route to edit the post
+router.get("/post/edit/:id", withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id);
+
+    const post = postData.get({ plain: true });
+    res.render("editpost", { post, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 // POST route to add a blog post
 // CREATE new post
 router.post("/post", async (req, res) => {
@@ -92,6 +104,8 @@ router.post("/post", async (req, res) => {
 
 // PUT route to update the post
 router.put("/post/:id", async (req, res) => {
+  console.log(req.params.id);
+  console.log("here");
   try {
     const updatedPost = await Post.update(
       {
@@ -110,6 +124,7 @@ router.put("/post/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 // DELETE route to remove the post
 router.delete("/post/:id", async (req, res) => {
   try {

@@ -3,16 +3,25 @@
     Post</h3>
   <div class="card-body">
     <div class="col-md-6">
-      <form class="form new-project-form" method="POST" action="/post">
+      <form class="form new-post-form" method="PUT" action="/post/{{post.id}}">
+        <input type="hidden" id="post_id" value="{{post.id}}" />
         <div class="form-group">
-          <label for="project-name">Title</label>
+          <label for="post-name">Title</label>
           <br />
-          <input class="form-input" type="text" id="title" name="title" />
+          <input
+            class="form-input"
+            type="text"
+            id="title"
+            name="title"
+            value="{{post.title}}"
+          />
         </div>
 
         <div class="form-group">
-          <label for="project-desc">Content</label><br />
-          <textarea class="form-input" id="content" name="content"></textarea>
+          <label for="post-desc">Content</label><br />
+          <textarea class="form-input" id="content" name="content">
+            {{post.content}}
+          </textarea>
         </div>
         <div class="form-group">
           <button
@@ -20,6 +29,8 @@
             class="btn"
             style="background-color: #666666; color:white"
           >Update Post</button>
+          <br />
+          <br />
           <button
             class="btn"
             style="background-color: #666666; color:white"
@@ -33,3 +44,5 @@
   <button class="btn mt-2" style="background-color: #231010; color:white">+ New
     Post</button>
 </a>
+
+<script src="/js/editpost.js" type="text/javascript"></script>
