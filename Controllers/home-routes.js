@@ -20,6 +20,26 @@ router.get("/", async (req, res) => {
   }
 });
 
+// GET all the posts for dashboard page by user_id
+router.get("/dashboard", async (req, res) => {
+  try {
+    const postData = await Post.findAll({
+      where: {
+        user_id: req.session.loggedIn,
+      },
+    });
+    const posts = postData.map((post) => post.get({ plain: true }));
+
+    res.render("dashboard", {
+      posts,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 // GET one post
 // Use the custom middleware before allowing the user to access the posts
 router.get("/post/:id", withAuth, async (req, res) => {
@@ -56,7 +76,7 @@ router.post("/post", async (req, res) => {
       user_id: req.session.user_id,
       created_on: Date.now(),
     });
-    res.status(200).json(postData);
+    res.redirect("/dashboard");
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

@@ -1,6 +1,22 @@
 <div class="text-center">
+  <!-- Loop over each object in the projects array -->
+  {{#each posts as |post|}}
+    <div class="row mb-4 post" style="background-color: #666666; color:white">
+      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
 
+      <a
+        class="d-flex justify-content-start"
+        style="color:white;width:80%"
+        href="/post/{{post.id}}"
+      >{{post.title}}</a>
+      <p class="d-flex justify-content-end">
+
+        {{format_date post.created_on}}</p>
+    </div>
+  {{/each}}
   <a href="/newpost">
     <button class="btn">+ New Post</button>
   </a>
 </div>
+
+///edit post
