@@ -14,7 +14,10 @@
 
   <body style="font-size: 30px;background-color: #d9ead3">
     <header>
-      <div class="jumbotron jumbotron-fluid" style="background-color: #231010">
+      <div
+        class="jumbotron jumbotron-fluid p-5"
+        style="background-color: #231010; margin-top:-30px"
+      >
         <div class="container-fluid">
           <ul class="nav mb-5">
             <li class="nav-item">
@@ -68,7 +71,11 @@
               border-radius: 10px;
             "
           >
-            The Tech Blog
+            {{#if pageName}}
+              {{pageName}}
+            {{else}}
+              The Tech Blog
+            {{/if}}
           </h1>
         </div>
       </div>

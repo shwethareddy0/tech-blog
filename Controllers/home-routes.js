@@ -32,7 +32,7 @@ router.get("/dashboard", async (req, res) => {
   try {
     const postData = await Post.findAll({
       where: {
-        user_id: req.session.loggedIn,
+        user_id: req.session.user_id,
       },
     });
     const posts = postData.map((post) => post.get({ plain: true }));
@@ -40,6 +40,7 @@ router.get("/dashboard", async (req, res) => {
     res.render("dashboard", {
       posts,
       loggedIn: req.session.loggedIn,
+      pageName: "Your Dashboard",
     });
   } catch (err) {
     console.log(err);

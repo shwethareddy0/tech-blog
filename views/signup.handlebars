@@ -1,20 +1,39 @@
-<div class="col-md-6">
-    <h2>Sign Up</h2>
+<div class="card" style="border:2px solid #231010">
+  <h3 class="card-header" style="background-color: #231010; color: #d9ead3">Sign
+    Up</h3>
+  <div class="card-body" style="background-color:#d9ead3">
+    <form class="form signup-form p-3">
+      <div class="form-group" style="height:40%">
+        <label for="name-signup">Username</label><br />
+        <input
+          class="form-input"
+          type="text"
+          id="username"
+          name="username"
+          style="width:100%; height:10%"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password-signup">Password</label><br />
+        <input
+          class="form-input"
+          type="password"
+          id="password"
+          name="password"
+          style="width:100%; height:10%"
+        />
+      </div>
+      <div class="form-group"><br />
 
-    <form class="form signup-form" method="POST" action="/api/users">
-      <div class="form-group">
-        <label for="name-signup">Username</label>
-        <input class="form-input" type="text" id="username" name="username"/>
-      </div>
-      <div class="form-group">
-        <label for="password-signup">Password</label>
-        <input class="form-input" type="password" id="password" name="password"/>
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">Sign Up!</button>
+        <button
+          class="btn"
+          style="background-color: #666666; color:white;width:100%;height:10%;font-size:30px"
+          type="submit"
+        >Sign Up!</button>
       </div>
     </form>
+    <a class="m-3" href="/login">Login instead</a>
   </div>
 </div>
-<a href="/login">Login instead</a>
+
 <script src="./js/login.js"></script>
