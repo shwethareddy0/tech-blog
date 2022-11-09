@@ -31,17 +31,22 @@ router.post("/login", async (req, res) => {
     });
 
     if (!userData) {
-      res
+      // res.redirect(400, "/login");
+      res.render("login", {
+        error: "Incorrect username or password. Please try again!",
+      });
+      /*res
         .status(400)
-        .json({ message: "Incorrect username or password. Please try again!" });
+        .json({ message: "Incorrect username or password. Please try again!" });*/
       return;
     }
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res
+      res.redirect(400, "/login");
+      /*res
         .status(400)
-        .json({ message: "Incorrect email or password. Please try again!" });
+        .json({ message: "Incorrect email or password. Please try again!" });*/
       return;
     }
 
@@ -49,13 +54,11 @@ router.post("/login", async (req, res) => {
       req.session.loggedIn = true;
       req.session.user_id = userData.id;
 
-      res
-        .status(200)
-        .json({ user: userData, message: "You are now logged in!" });
+      res.redirect("/dashboard");
     });
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    res.redirect(500, "/login");
   }
 });
 
