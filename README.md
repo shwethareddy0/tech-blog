@@ -4,7 +4,7 @@
 
 Tech Blog is a CMS application where developers can publish their blog posts and comment on other developers’ posts as well.
 
-Here is the link to the [deployed application]()
+Here is the link to the [deployed application](https://sr-tech-blog.herokuapp.com/)
 
 ### Features
 
@@ -35,7 +35,7 @@ This project can be used in any web browser or on any devices including the mobi
 
 The following is the demo screenshot of the deployed application.
 
-![Demo screenshot]()
+![Demo screenshot](./images/The%20Tech%20Blog.gif)
 
 Following is a code snippet of the application page.
 
