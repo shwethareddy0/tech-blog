@@ -3,33 +3,42 @@
     class="card-header"
     style="background-color: #231010;color: #d9ead3"
   >Create a New Post</h3>
-  <div class="card-body">
-    <div class="col-md-6">
-      <form class="form new-post-form" method="POST" action="/post">
-        <div class="form-group">
-          <label for="post-name">Title</label>
-          <br />
-          <input class="form-input" type="text" id="title" name="title" />
-        </div>
+  <div class="card-body" style="background-color: #d9ead3">
+    <form class="form new-post-form" method="POST" action="/post">
+      <div class="form-group">
+        <label for="post-name">Title</label>
+        <br />
+        <input
+          class="form-input"
+          type="text"
+          id="title"
+          name="title"
+          style="width:100%; height:10%"
+        />
+      </div>
 
-        <div class="form-group">
-          <label for="post-desc">Content</label><br />
-          <textarea class="form-input" id="content" name="content"></textarea>
-        </div>
-        <div class="form-group">
-          <button
-            type="submit"
-            class="btn"
-            style="background-color: #666666; color:white"
-          >Create</button>
-        </div>
-      </form>
-
-    </div>
-
+      <div class="form-group">
+        <label for="post-desc">Content</label><br />
+        <textarea
+          class="form-input"
+          id="content"
+          name="content"
+          style="width:100%; height:30%;text-align:start"
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <button
+          type="submit"
+          class="btn"
+          style="background-color: #231010; color:white; width:100%;height:10%;font-size:30px"
+        >Create</button>
+      </div>
+    </form>
   </div>
 </div>
 <a href="/newpost">
-  <button class="btn mt-2" style="background-color: #231010; color:white">+ New
-    Post</button>
+  <button
+    class="btn mt-2 p-3"
+    style="background-color: #231010; color:white;font-size:40px;width:20%; border-radius:10px"
+  >+ New Post</button>
 </a>

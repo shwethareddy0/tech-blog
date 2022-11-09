@@ -5,15 +5,15 @@
     style="background-color: #231010;color: #d9ead3"
   >Login</h3>
   <div class="card-body" style="background-color: #d9ead3">
-    <form class="form login-form" method="post" action="/api/users/login"/>
-      <div class="form-group">
+    <form class="form login-form p-3" method="post" action="/api/users/login"/>
+      <div class="form-group" style="height:40%">
         <label for="username">Username</label><br/>
-        <input class="form-input" type="text" id="username" name="username" />
+        <input class="form-input" type="text" id="username" name="username" style="width:100%; height:10%"/>
       </div>
       <div class="form-group">
         <label for="password">Password</label><br />
 
-        <input class="form-input" type="password" id="password" name="password"/>
+        <input class="form-input" type="password" id="password" name="password"style="width:100%; height:10%"/>
       </div>
       <div class="form-group">
         {{error}}

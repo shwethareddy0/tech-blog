@@ -1,44 +1,48 @@
 <div class="card" style="border:2px solid #231010">
   <h3 class="card-header" style="background-color: #231010;color: #d9ead3">Edit
     Post</h3>
-  <div class="card-body">
-    <div class="col-md-6">
-      <form class="form new-post-form" method="PUT" action="/post/{{post.id}}">
-        <input type="hidden" id="post_id" value="{{post.id}}" />
-        <div class="form-group">
-          <label for="post-name">Title</label>
-          <br />
-          <input
-            class="form-input"
-            type="text"
-            id="title"
-            name="title"
-            value="{{post.title}}"
-          />
-        </div>
+  <div class="card-body" style="background-color: #d9ead3">
+    <form class="form new-post-form" method="PUT" action="/post/{{post.id}}">
+      <input type="hidden" id="post_id" value="{{post.id}}" />
+      <div class="form-group">
+        <label for="post-name">Title</label>
+        <br />
+        <input
+          class="form-input"
+          type="text"
+          id="title"
+          name="title"
+          style="width:100%; height:10%"
+          value="{{post.title}}"
+        />
+      </div>
 
-        <div class="form-group">
-          <label for="post-desc">Content</label><br />
-          <textarea class="form-input" id="content" name="content">
-            {{post.content}}
-          </textarea>
-        </div>
-        <div class="form-group">
-          <button
-            type="submit"
-            class="btn"
-            style="background-color: #666666; color:white"
-          >Update Post</button>
-          <br />
-          <br />
-          <button
-            class="btn"
-            id="delete"
-            style="background-color: #666666; color:white"
-          >Delete</button>
-        </div>
-      </form>
-    </div>
+      <div class="form-group">
+        <label for="post-desc">Content</label><br />
+        <textarea
+          class="form-input"
+          id="content"
+          name="content"
+          style="width:100%; height:30%;text-align:start"
+        >
+          {{post.content}}
+        </textarea>
+      </div>
+      <div class="form-group">
+        <button
+          type="submit"
+          class="btn"
+          style="background-color: #666666; color:white;width:100%;height:10%;font-size:30px"
+        >Update Post</button>
+        <br />
+        <br />
+        <button
+          class="btn"
+          id="delete"
+          style="background-color: #666666; color:white;width:100%;height:10%;font-size:30px"
+        >Delete</button>
+      </div>
+    </form>
   </div>
 </div>
 <a href="/newpost">
