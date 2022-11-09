@@ -154,7 +154,7 @@ router.post("/comment", async (req, res) => {
       post_id: req.body.post_id,
       created_on: Date.now(),
     });
-    res.status(200).json(commentData);
+    res.redirect("/post/" + req.body.post_id);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

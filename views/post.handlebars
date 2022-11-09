@@ -1,25 +1,75 @@
-<div class="text-center">
-  <h2>{{post.title}}</h2>
-  <p>{{post.content}}</p>
-  <p>Posted by {{post.user.username}} on {{format_date post.created_on}}</p>
-  {{#each post.comments as |comment|}}
-    <span>{{comment.content}}</span>
+<div class="row mb-4 post" style="width:100%;  display:inline">
+  <!-- Call helper function with triple brackets to render the emoji span as HTML -->
+  <div class="card mb-4" style="border:5px solid #231010">
+    <h3
+      class="card-header"
+      style="background-color: #231010;color: #d9ead3;  display:flex; justify-content:space-between"
+    ><a style="color: #d9ead3" href="/post/{{post.id}}">{{post.title}}</a>
+      <p style="font-size:20px">Posted by
+        {{post.user.username}}
+        on
+        {{format_date post.created_on}}</p>
+    </h3>
+    <div class="card-body" style="background-color: #d9ead3">
+      <p>
+        {{post.content}}
+      </p>
+    </div>
+  </div>
+  {{#each post.comments as |comment|}}<br />
+    <div class="card mb-4" style="border:5px solid #231010">
+      <h3 class="card-header" style="background-color: #231010;color: #d9ead3">
+        &nbsp;</h3>
+      <div class="card-body" style="background-color: #d9ead3">
+        <p>
+          <span>{{comment.content}}</span>
+        </p>
+        <p>
+          <span>&#8212;
+            {{comment.user.username}},
+            {{format_date comment.created_on}}
+          </span></p>
+      </div>
+    </div>
   {{/each}}
-  <form class="form signup-form" method="POST" action="/comment">
-    <input
-      class="form-input"
-      type="hidden"
-      id="post_id"
-      name="post_id"
-      value="{{post.id}}"
-    />
-    <div class="form-group">
-      <label for="name-signup">Comment</label>
-      <input class="form-input" type="text" id="content" name="content" />
-    </div>
+</div>
 
-    <div class="form-group">
-      <button class="btn btn-primary" type="submit">Submit</button>
+<div class="row mb-4 post" style="width:100%; display:inline">
+
+  <!-- Call helper function with triple brackets to render the emoji span as HTML -->
+  <!--Comment card-->
+  <div class="card mb-4" style="border:5px solid #231010">
+    <h3
+      class="card-header"
+      style="background-color: #231010; color: #d9ead3; height:50px"
+    ></h3>
+    <div class="card-body" style="background-color: #d9ead3">
+      <form class="form signup-form" method="POST" action="/comment">
+        <input
+          class="form-input"
+          type="hidden"
+          id="post_id"
+          name="post_id"
+          value="{{post.id}}"
+        />
+        <div class="form-group">
+          <label for="name-signup">Comment</label><br />
+          <textarea
+            class="form-input"
+            type="text"
+            id="content"
+            name="content"
+            style="width:100%; height:30%"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <button
+            class="btn"
+            style="background-color: #666666; color:white;width:100%;height:10%;font-size:30px"
+            type="submit"
+          >Submit</button>
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
 </div>
