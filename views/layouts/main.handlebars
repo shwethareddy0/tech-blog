@@ -31,16 +31,33 @@
                 href="/dashboard"
               >Dashboard</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" style="color: #d9ead3" href="/login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                style="color: #d9ead3"
-                href="/logout"
-              >Logout</a>
-            </li>
+            {{#if loggedIn}}
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  style="color: #d9ead3"
+                  id="logout"
+                  href="#"
+                >Logout</a>
+              </li>
+            {{else}}
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  style="color: #d9ead3"
+                  href="/login"
+                >Login</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  style="color: #d9ead3"
+                  id="logout"
+                  href="#"
+                >Logout</a>
+              </li>
+            {{/if}}
+
           </ul>
           <h1
             class="display-4 p-2 font-weight-bold"
@@ -65,7 +82,7 @@
     </div>
 
     <!-- Render script for logged in users only -->
-    {{#if logged_in}}
+    {{#if loggedIn}}
       <script src="/js/logout.js"></script>
     {{/if}}
     <script
